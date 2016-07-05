@@ -1,20 +1,56 @@
-<ion-modal-view class="wow-item-modal">
-  <ion-content>
+<div>
+  <ion-modal-view class="wow-item-modal scroll-view">
+    <ion-content scroll="true" overflow-scroll="false">
     <div class="wow-item">
-      <div class="wow-item-name" ng-class="[{rare: item.quality == 2}, {epic: item.quality == 4}]">{{::item.name}}</div>
-      <div class="wow-item-level">{{::item.itemLevel}}</div>
-      <div ng-if="item.bonding" class="wow-item-bonding">{{::item.bonding}}</div>
-      <div ng-if="item.armor" class="wow-item-armor">{{::item.armor}}</div>
-      <div ng-if="item.stats" ng-repeat="stat in item.stats" class="wow-item-stat">{{::stat}}</div>
-      <!--<div ng-if="item.armor" class="wow-item-armor green">{{::item.bonding}}</div>-->
-      <div ng-if="item.durability" class="wow-item-durability">{{::item.durability}}</div>
-      <div ng-if="item.requiredLevel" class="wow-item-reqlevel">{{::item.requiredLevel}}</div>
-      <div ng-if="item.greenStats" ng-repeat="stat in item.greenStats" class="wow-item-greenstat">
-        <div ng-switch="stat.type">
-          <span ng-switch-when="stat">{{::stat.name}}</span>
-          <span ng-switch-when="spell">{{::stat.prefix}}{{::stat.name}}</span>
+      <div class="wow-item-name"
+           ng-class="[{q0: item.quality == 0}, {q1: item.quality == 1}, {q2: item.quality == 2}, {q3: item.quality == 3}, {q4: item.quality == 4}, {q5: item.quality == 5}]">
+        {{item.name}}
+      </div>
+      <div class="wow-item-level q">{{item.itemLevel}}</div>
+      <div ng-if="item.bonding" class="wow-item-bonding">{{item.bonding}}</div>
+      <div ng-if="item.slot || item.subSlot">
+        <div class="row">
+          <div class="col wow-item-slot">{{item.slot}}</div>
+          <div class="col wow-item-subslot">{{item.subSlot}}</div>
         </div>
+      </div>
+      <div ng-if="item.armor" class="wow-item-armor" ng-class="{q2: item.greenArmor}">{{item.armor}}</div>
+      <div ng-if="item.stats" ng-repeat="stat in item.stats" class="wow-item-stat">{{stat}}</div>
+      <div ng-if="item.enchant" class="wow-item-enchant q2">{{item.enchant}}</div>
+
+      <!--<div ng-if="item.armor" class="wow-item-armor green">{{item.bonding}}</div>-->
+      <div ng-if="item.socket">
+        <div ng-repeat="gem in item.socket.sockets" class="wow-item-socket-gem"><img
+          ng-src="{{staticRoot}}/wow/icons/tiny/{{gem.icon | lowercase}}.gif"> {{gem.name}}
+        </div>
+        <div class="wow-item-socket-bonus q0" ng-class="{q2: item.socket.valid}">{{item.socket.bonusName}}</div>
+      </div>
+      <div ng-if="item.durability" class="wow-item-durability">{{item.durability}}</div>
+      <div ng-if="item.requiredClass" class="wow-item-reqclass">{{item.requiredClass}}</div>
+      <div ng-if="item.requiredLevel" class="wow-item-reqlevel">{{item.requiredLevel}}</div>
+      <div ng-if="item.requiredRep" class="wow-item-reqrep">{{item.requiredRep}}</div>
+      <div ng-if="item.greenStats" ng-repeat="stat in item.greenStats" class="wow-item-greenstat q2">
+        <div ng-switch="stat.type">
+          <span ng-switch-when="stat">{{stat.name}}</span>
+          <span ng-switch-when="spell">{{stat.prefix}}{{stat.name}}</span>
+        </div>
+      </div>
+
+      <div ng-if="item.itemSet">
+        <div class="wow-item-set-main">
+          <div class="wow-item-set-name q">{{item.itemSet.name}}</div>
+          <div ng-repeat="item in item.itemSet.items" class="wow-item-set-item q0">{{item.name}}</div>
+        </div>
+        <div ng-repeat="bonus in item.itemSet.bonus" class="wow-item-set-bonus q0">({{bonus.requiredPieces}})
+          {{item.itemSet.bonusLocale}}{{bonus.name}}
+        </div>
+      </div>
+      <div ng-if="item.sell" class="wow-item-sell">
+        {{item.sell.locale}}<span class="wow-item-sell-gold" ng-if="item.sell.gold > 0">{{item.sell.gold}}</span> <span
+        class="wow-item-sell-silver" ng-if="item.sell.silver > 0">{{item.sell.silver}}</span> <span
+        class="wow-item-sell-copper" ng-if="item.sell.copper > 0">{{item.sell.copper}}</span>
       </div>
     </div>
   </ion-content>
 </ion-modal-view>
+</div>

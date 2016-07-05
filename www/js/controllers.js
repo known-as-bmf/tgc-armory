@@ -56,11 +56,12 @@ angular.module('starter.controllers', [])
 
     $scope.openModal = function (item) {
       //item.itemId = "30034";
-
-      Items.get(item).success(function (data) {
-        $scope.item = data.data;
-        $scope.modal.show();
-      });
+      if (item) {
+        Items.get(item).success(function (data) {
+          $scope.item = data.data;
+          $scope.modal.show();
+        });
+      }
     };
     $scope.closeModal = function () {
       $scope.modal.hide();
@@ -73,8 +74,8 @@ angular.module('starter.controllers', [])
     // Execute action on show modal
     $scope.$on('modal.shown', function () {
       /*$timeout(function () {
-        $scope.modal.hide();
-      }, 2000);*/
+       $scope.modal.hide();
+       }, 2000);*/
     });
     // Execute action on hide modal
     $scope.$on('modal.hidden', function () {

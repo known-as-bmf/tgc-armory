@@ -5350,9 +5350,9 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   .modal {
     top: 20%;
     right: 5%;
-    bottom: 20%;
+    bottom: initial;
     left: 5%;
-    min-height: 240px;
+    min-height: 0px;
     width: 90%; }
   .modal.ng-leave-active {
     bottom: 0; }
@@ -9862,8 +9862,8 @@ a.button {
     z-index: 5; }
   .wow-item-thumb.large .foreground {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     background-image: url("../img/icons/large/border/default.png");
     background-repeat: no-repeat;
     width: 68px;
@@ -9881,20 +9881,68 @@ a.button {
   /* Safari */
   -o-border-image: url("../img/wow/tooltip.png") 10 10 fill repeat;
   /* Opera */
-  border-image: url("../img/wow/tooltip.png") 10 10 fill repeat; }
+  border-image: url("../img/wow/tooltip.png") 10 10 fill repeat;
+  height: 100%;
+  min-height: 0;
+  max-height: 60%;
+  /*ion-scroll {
+    height: 100%;
+  }*/ }
+  .wow-item-modal.ng-leave-active {
+    bottom: initial; }
   .wow-item-modal .wow-item {
     font-family: Verdana, sans-serif;
     font-size: 12px;
     line-height: 17px;
     color: white; }
+    .wow-item-modal .wow-item .q {
+      color: #ffd100; }
+    .wow-item-modal .wow-item .q0 {
+      color: #9d9d9d; }
+    .wow-item-modal .wow-item .q1 {
+      color: #fff; }
+    .wow-item-modal .wow-item .q2 {
+      color: #1eff00; }
+    .wow-item-modal .wow-item .q3 {
+      color: #0070dd; }
+    .wow-item-modal .wow-item .q4 {
+      color: #a335ee; }
+    .wow-item-modal .wow-item .q5 {
+      color: #ff8000; }
+    .wow-item-modal .wow-item .q6 {
+      color: #e5cc80; }
+    .wow-item-modal .wow-item .q7 {
+      color: #e5cc80; }
+    .wow-item-modal .wow-item .q8 {
+      color: #ffff98; }
+    .wow-item-modal .wow-item .q9 {
+      color: #71d5ff; }
+    .wow-item-modal .wow-item .q10 {
+      color: #ff4040; }
     .wow-item-modal .wow-item .wow-item-name {
       font-size: 14px;
       line-height: 19px; }
-      .wow-item-modal .wow-item .wow-item-name.epic {
-        color: #a335ee; }
-      .wow-item-modal .wow-item .wow-item-name.rare {
-        color: #0070dd; }
-    .wow-item-modal .wow-item .wow-item-level {
-      color: #ffd100; }
-    .wow-item-modal .wow-item .wow-item-greenstat {
-      color: #1eff00; }
+    .wow-item-modal .wow-item .row {
+      padding: 0; }
+      .wow-item-modal .wow-item .row .col {
+        padding: 0; }
+    .wow-item-modal .wow-item .wow-item-slot {
+      text-align: left; }
+    .wow-item-modal .wow-item .wow-item-subslot {
+      text-align: right; }
+    .wow-item-modal .wow-item .wow-item-socket-gem img {
+      vertical-align: middle; }
+    .wow-item-modal .wow-item .wow-item-set-main {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em; }
+      .wow-item-modal .wow-item .wow-item-set-main .wow-item-set-item {
+        padding-left: .6em; }
+    .wow-item-modal .wow-item .wow-item-sell span {
+      padding-right: 15px;
+      background: no-repeat right center; }
+      .wow-item-modal .wow-item .wow-item-sell span.wow-item-sell-gold {
+        background-image: url("../img/icons/money-gold.gif"); }
+      .wow-item-modal .wow-item .wow-item-sell span.wow-item-sell-silver {
+        background-image: url("../img/icons/money-silver.gif"); }
+      .wow-item-modal .wow-item .wow-item-sell span.wow-item-sell-copper {
+        background-image: url("../img/icons/money-copper.gif"); }

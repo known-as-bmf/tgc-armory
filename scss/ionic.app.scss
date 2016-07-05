@@ -17,26 +17,30 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-$modal-inset-mode-break-point:    0px;  // @media min-width
-$modal-inset-mode-right:          5%;
-$modal-inset-mode-left:           5%;
+
+$modal-inset-mode-break-point: 0px;
+$modal-inset-mode-right: 5%;
+$modal-inset-mode-left: 5%;
+$modal-inset-mode-bottom: initial;
+$modal-inset-mode-min-height: 0px;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-
 @mixin scale3d($x, $y, $z) {
-  @include transform( scale3d($x, $y, $z) );
+  @include transform(scale3d($x, $y, $z));
 }
 
 .zoom-in {
   @include scale3d(0.8, 0.8, 1);
   opacity: 0;
 }
+
 .zoom-in.ng-enter,
 .zoom-in > .ng-enter {
   @include transition(all cubic-bezier(.1, .7, .1, 1) 400ms);
 }
+
 .zoom-in.ng-enter-active,
 .zoom-in > .ng-enter-active {
   @include scale3d(1, 1, 1);
@@ -48,7 +52,7 @@ $modal-inset-mode-left:           5%;
   @include transition(all ease-in-out 250ms);
 }
 
-.item-input-wrapper  {
+.item-input-wrapper {
   background: none;
 }
 
@@ -65,6 +69,7 @@ $modal-inset-mode-left:           5%;
   position: relative;
   margin: 0 auto;
 }
+
 .wow-item-thumb.large {
   width: 68px;
   height: 68px;
@@ -82,8 +87,8 @@ $modal-inset-mode-left:           5%;
 
   .foreground {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
 
     background-image: url("../img/icons/large/border/default.png");
     background-repeat: no-repeat;
@@ -96,7 +101,7 @@ $modal-inset-mode-left:           5%;
 }
 
 .wow-item-modal {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   /*background-image: url("../img/wow/tooltip.png");*/
 
   border: 10px solid transparent;
@@ -106,28 +111,113 @@ $modal-inset-mode-left:           5%;
   -o-border-image: url("../img/wow/tooltip.png") 10 10 fill repeat; /* Opera */
   border-image: url("../img/wow/tooltip.png") 10 10 fill repeat;
 
+  height: 100%;
+  min-height: 0;
+  max-height: 60%;
+  &.ng-leave-active {
+    bottom: initial;
+  }
+
+  /*ion-scroll {
+    height: 100%;
+  }*/
+
   .wow-item {
     font-family: Verdana, sans-serif;
     font-size: 12px;
     line-height: 17px;
     color: white;
 
+    .q {
+      color: #ffd100;
+    }
+    .q0 {
+      color: #9d9d9d;
+    }
+    .q1 {
+      color: #fff;
+    }
+    .q2 {
+      color: #1eff00;
+    }
+    .q3 {
+      color: #0070dd;
+    }
+    .q4 {
+      color: #a335ee;
+    }
+    .q5 {
+      color: #ff8000;
+    }
+
+    .q6 {
+      color: #e5cc80;
+    }
+    .q7 {
+      color: #e5cc80;
+    }
+    .q8 {
+      color: #ffff98;
+    }
+    .q9 {
+      color: #71d5ff;
+    }
+    .q10 {
+      color: #ff4040;
+    }
+
     .wow-item-name {
       font-size: 14px;
       line-height: 19px;
-
-      &.epic {
-        color: #a335ee;
+    }
+    .row {
+      padding: 0;
+      .col {
+        padding: 0;
       }
-      &.rare {
-        color:#0070dd;
-      }
+    }
+    .wow-item-slot {
+      text-align: left;
+    }
+    .wow-item-subslot {
+      text-align: right;
     }
     .wow-item-level {
-      color: #ffd100;
     }
     .wow-item-greenstat {
-      color: #1eff00;
+    }
+    .wow-item-socket-gem {
+      img {
+        vertical-align: middle;
+      }
+    }
+    .wow-item-set-main {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+
+      .wow-item-set-name {
+      }
+      .wow-item-set-item {
+        padding-left: .6em;
+      }
+    }
+    .wow-item-set-bonus {
+    }
+    .wow-item-sell {
+      span {
+        padding-right: 15px;
+        background: no-repeat right center;
+
+        &.wow-item-sell-gold {
+          background-image: url("../img/icons/money-gold.gif");
+        }
+        &.wow-item-sell-silver {
+          background-image: url("../img/icons/money-silver.gif");
+        }
+        &.wow-item-sell-copper {
+          background-image: url("../img/icons/money-copper.gif");
+        }
+      }
     }
   }
 }

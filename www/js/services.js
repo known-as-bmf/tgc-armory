@@ -52,10 +52,10 @@ angular.module('starter.services', [])
           if (data.gems) {
             params.gems = data.gems.join(':');
           }
-          if (data.enchant) {
+          if (data.enchantId) {
             params.ench = data.enchantId;
           }
-          if (data.enchantSpell) {
+          if (data.enchantSpellId) {
             params.enchspell = data.enchantSpellId;
           }
         } else {
