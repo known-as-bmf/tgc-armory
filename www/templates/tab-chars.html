@@ -1,0 +1,29 @@
+<ion-view view-title="Characters">
+  <ion-header-bar class="bar-light bar-subheader">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <!--<input type="search" placeholder="Search" ng-model="searchTterm" ng-change="search(searchTterm)"  ng-model-options="{debounce: 750}">-->
+      <input class="header-input" type="text" placeholder="Search" ng-model="searchTerm" ng-change="search()">
+    </label>
+    <button ng-if="searchTerm.length" class="button button-small button-icon ion-close input-button" ng-click="clearSearch()"></button>
+  </ion-header-bar>
+
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-repeat="char in chars" type="item-text-wrap" ui-sref=".detail({charId: char.id})">
+        <!--
+        class,
+        guild,
+        id,
+        level,
+        name,
+        race
+-->
+        <h2>{{char.name}}</h2>
+        <p>{{char.level}} - <span ng-include src="'templates/char/class.html'"></span> (<span ng-include src="'templates/char/race.html'"></span>)</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

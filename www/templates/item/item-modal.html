@@ -1,0 +1,20 @@
+<ion-modal-view class="wow-item-modal">
+  <ion-content>
+    <div class="wow-item">
+      <div class="wow-item-name" ng-class="[{rare: item.quality == 2}, {epic: item.quality == 4}]">{{::item.name}}</div>
+      <div class="wow-item-level">{{::item.itemLevel}}</div>
+      <div ng-if="item.bonding" class="wow-item-bonding">{{::item.bonding}}</div>
+      <div ng-if="item.armor" class="wow-item-armor">{{::item.armor}}</div>
+      <div ng-if="item.stats" ng-repeat="stat in item.stats" class="wow-item-stat">{{::stat}}</div>
+      <!--<div ng-if="item.armor" class="wow-item-armor green">{{::item.bonding}}</div>-->
+      <div ng-if="item.durability" class="wow-item-durability">{{::item.durability}}</div>
+      <div ng-if="item.requiredLevel" class="wow-item-reqlevel">{{::item.requiredLevel}}</div>
+      <div ng-if="item.greenStats" ng-repeat="stat in item.greenStats" class="wow-item-greenstat">
+        <div ng-switch="stat.type">
+          <span ng-switch-when="stat">{{::stat.name}}</span>
+          <span ng-switch-when="spell">{{::stat.prefix}}{{::stat.name}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

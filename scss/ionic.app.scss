@@ -1,0 +1,133 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+$modal-inset-mode-break-point:    0px;  // @media min-width
+$modal-inset-mode-right:          5%;
+$modal-inset-mode-left:           5%;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+@mixin scale3d($x, $y, $z) {
+  @include transform( scale3d($x, $y, $z) );
+}
+
+.zoom-in {
+  @include scale3d(0.8, 0.8, 1);
+  opacity: 0;
+}
+.zoom-in.ng-enter,
+.zoom-in > .ng-enter {
+  @include transition(all cubic-bezier(.1, .7, .1, 1) 400ms);
+}
+.zoom-in.ng-enter-active,
+.zoom-in > .ng-enter-active {
+  @include scale3d(1, 1, 1);
+  opacity: 1;
+}
+
+.zoom-in.ng-leave,
+.zoom-in > .ng-leave {
+  @include transition(all ease-in-out 250ms);
+}
+
+.item-input-wrapper  {
+  background: none;
+}
+
+.header-input {
+  background: none;
+  width: 100%;
+}
+
+.char-equipment {
+  padding-bottom: 25px;
+}
+
+.wow-item-thumb {
+  position: relative;
+  margin: 0 auto;
+}
+.wow-item-thumb.large {
+  width: 68px;
+  height: 68px;
+
+  img {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+
+    width: 56px;
+    height: 56px;
+
+    z-index: 5;
+  }
+
+  .foreground {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    background-image: url("../img/icons/large/border/default.png");
+    background-repeat: no-repeat;
+
+    width: 68px;
+    height: 68px;
+
+    z-index: 10;
+  }
+}
+
+.wow-item-modal {
+  background-color: rgba(0,0,0,0);
+  /*background-image: url("../img/wow/tooltip.png");*/
+
+  border: 10px solid transparent;
+  /*padding: 10px 20px;*/
+  -moz-border-image: url("../img/wow/tooltip.png") 10 10 fill repeat; /* Old Firefox */
+  -webkit-border-image: url("../img/wow/tooltip.png") 10 10 fill repeat; /* Safari */
+  -o-border-image: url("../img/wow/tooltip.png") 10 10 fill repeat; /* Opera */
+  border-image: url("../img/wow/tooltip.png") 10 10 fill repeat;
+
+  .wow-item {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    line-height: 17px;
+    color: white;
+
+    .wow-item-name {
+      font-size: 14px;
+      line-height: 19px;
+
+      &.epic {
+        color: #a335ee;
+      }
+      &.rare {
+        color:#0070dd;
+      }
+    }
+    .wow-item-level {
+      color: #ffd100;
+    }
+    .wow-item-greenstat {
+      color: #1eff00;
+    }
+  }
+}

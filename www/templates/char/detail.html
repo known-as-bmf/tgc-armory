@@ -1,0 +1,50 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<!--<ion-view view-title="t{{char.name}}" cache-view="false">-->>
+<ion-view>
+  <ion-nav-title>{{char.name}}</ion-nav-title>
+  <!--<ion-tabs class="tabs-striped tabs-top tabs-background-stable tabs-color-active-positive">
+
+    <ion-tab title="A">
+      <ion-content class="padding has-tabs-top">
+          <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
+          <p>
+            A {{chat.lastText}}
+          </p>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="B">
+      <ion-content class="padding has-tabs-top">
+          <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
+          <p>
+            B {{chat.lastText}}
+          </p>
+        </ion-content>
+    </ion-tab>
+  </ion-tabs>-->
+  <ion-header-bar class="bar-stable bar-subheader">
+    <h1 class="title">{{subtitle}}</h1>
+  </ion-header-bar>
+  <!-- <ion-content overflow-scroll="true" padding="false" locking="true" has-bouncing="false">-->
+  <ion-content scroll="false" padding="false">
+    <!--<ion-slides options="sliderOptions" slider="data.slider">-->
+    <ion-slides slider="data.slider">
+      <ion-slide-page>
+        <ion-content>
+          <div ng-include src="'templates/char/items.html'"></div>
+        </ion-content>
+      </ion-slide-page>
+      <ion-slide-page>
+        <div ng-include src="'templates/chat/slide2.html'"></div>
+      </ion-slide-page>
+      <ion-slide-page>
+        <div ng-include src="'templates/chat/slide3.html'"></div>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>
